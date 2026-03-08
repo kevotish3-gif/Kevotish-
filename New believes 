@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masterpiece of Christ Jesus – New Believers Register</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #f0d078;
+    --gold-dark: #8b6914;
+    --deep: #0a0a14;
+    --deep2: #111128;
+    --deep3: #1a1a38;
+    --cream: #faf6ec;
+    --text-light: #e8dfc8;
+    --accent: #7b4fff;
+    --success: #27ae60;
+    --cross-glow: rgba(201,168,76,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* === STARFIELD BACKGROUND === */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(201,168,76,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 70%, rgba(123,79,255,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 10%, rgba(201,168,76,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d) ease-in-out infinite;
+    opacity: 0;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: var(--op); }
+  }
+
+  /* === HEADER === */
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    background: linear-gradient(180deg, rgba(10,10,20,0.95) 0%, transparent 100%);
+  }
+
+  .cross-icon {
+    display: inline-block;
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 18px var(--gold));
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+  @keyframes glow-pulse {
+    0%, 100% { filter: drop-shadow(0 0 18px rgba(201,168,76,0.7)); }
+    50% { filter: drop-shadow(0 0 32px rgba(201,168,76,1)); }
+  }
+
+  .site-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.3rem, 4vw, 2.6rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-shadow: none;
+  }
+
+  .site-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+    color: rgba(201,168,76,0.7);
+    margin-top: 0.5rem;
+    letter-spacing: 0.12em;
+  }
+
+  .verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(232,223,200,0.5);
+    margin-top: 0.8rem;
+    font-weight: 300;
+  }
+
+  /* === MAIN LAYOUT === */
+  main {
+    position: relative;
+    z-index: 10;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* === SECTION CARD === */
+  .form-card {
+    background: linear-gradient(135deg, rgba(26,26,56,0.92) 0%, rgba(17,17,40,0.97) 100%);
+    border: 1px solid rgba(201,168,76,0.22);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow:
+      0 0 0 1px rgba(201,168,76,0.04),
+      0 8px 40px rgba(0,0,0,0.6),
+      inset 0 1px 0 rgba(201,168,76,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0.6;
+  }
+
+  .section-heading {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201,168,76,0.4), transparent);
+  }
+
+  /* === FORM ROWS === */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .form-row.single { grid-template-columns: 1fr; }
+  .form-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+  @media (max-width: 540px) {
+    .form-row, .form-row.triple { grid-template-columns: 1fr; }
+  }
+
+  /* === FIELD === */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.75);
+  }
+
+  input, select, textarea {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    transition: all 0.25s ease;
+    outline: none;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(232,223,200,0.28); }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.07);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+  select { cursor: pointer; }
+  select option { background: var(--deep2); color: var(--text-light); }
+
+  textarea { resize: vertical; min-height: 80px; }
+
+  /* === DIVIDER === */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+    margin: 2rem 0;
+  }
+
+  /* === COMMITMENT TYPE === */
+  .commitment-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .commitment-option {
+    position: relative;
+  }
+  .commitment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+  }
+  .commitment-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.2rem;
+    border: 1.5px solid rgba(201,168,76,0.22);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: rgba(255,255,255,0.03);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .commitment-label .radio-dot {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(201,168,76,0.4);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .commitment-option input[type="radio"]:checked + .commitment-label {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    box-shadow: 0 0 16px rgba(201,168,76,0.12);
+  }
+  .commitment-option input[type="radio"]:checked + .commitment-label .radio-dot {
+    border-color: var(--gold);
+    background: var(--gold);
+  }
+  .commitment-option input[type="radio"]:checked + .commitment-label .radio-dot::after {
+    content: '✓';
+    font-size: 0.65rem;
+    color: var(--deep);
+    font-weight: 900;
+  }
+
+  /* === SUBMIT BUTTON === */
+  .submit-wrap {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1.1rem 2rem;
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+    border: none;
+    border-radius: 10px;
+    color: var(--deep);
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-submit::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+  .btn-submit:hover::before { transform: translateX(100%); }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 36px rgba(201,168,76,0.5);
+  }
+  .btn-submit:active { transform: translateY(0); }
+
+  .whatsapp-note {
+    font-size: 0.75rem;
+    color: rgba(232,223,200,0.45);
+    text-align: center;
+  }
+  .whatsapp-note span { color: #25d366; font-weight: 600; }
+
+  /* === SUCCESS POPUP === */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .popup-overlay.show { display: flex; }
+
+  .popup {
+    background: linear-gradient(135deg, var(--deep2), var(--deep3));
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 60px rgba(201,168,76,0.3);
+    animation: popup-in 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  }
+  @keyframes popup-in {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .popup-cross {
+    font-size: 3rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 20px var(--gold));
+  }
+  .popup h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .popup p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .popup-name {
+    font-weight: 700;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: #25d366;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 18px rgba(37,211,102,0.3);
+    margin-bottom: 0.8rem;
+  }
+  .btn-wa:hover {
+    background: #1ebe5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+  }
+  .btn-close {
+    display: block;
+    background: none;
+    border: none;
+    color: rgba(232,223,200,0.4);
+    font-size: 0.78rem;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: color 0.2s;
+  }
+  .btn-close:hover { color: var(--text-light); }
+
+  /* === RECORDS TABLE === */
+  .records-section {
+    margin-top: 2.5rem;
+  }
+  .records-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .records-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+  }
+  .records-count {
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+  thead {
+    background: rgba(201,168,76,0.1);
+  }
+  th {
+    padding: 0.75rem 0.9rem;
+    text-align: left;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  td {
+    padding: 0.7rem 0.9rem;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    color: rgba(232,223,200,0.8);
+    white-space: nowrap;
+  }
+  tr:hover td { background: rgba(201,168,76,0.04); }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+  }
+  .badge-new {
+    background: rgba(39,174,96,0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(39,174,96,0.3);
+  }
+  .badge-rededication {
+    background: rgba(123,79,255,0.15);
+    color: #a78bfa;
+    border: 1px solid rgba(123,79,255,0.3);
+  }
+  .empty-state {
+    text-align: center;
+    padding: 2.5rem;
+    color: rgba(232,223,200,0.25);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  /* === FOOTER === */
+  footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    color: rgba(232,223,200,0.25);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* === EXPORT BTN === */
+  .btn-export {
+    padding: 0.5rem 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 8px;
+    color: var(--gold);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.08em;
+  }
+  .btn-export:hover {
+    background: rgba(201,168,76,0.1);
+    border-color: var(--gold);
+  }
+
+  /* required star */
+  .req { color: rgba(201,168,76,0.7); margin-left: 2px; }
+</style>
+</head>
+<body>
+
+<!-- Starfield -->
+<div class="stars" id="stars"></div>
+
+<!-- Header -->
+<header>
+  <div class="cross-icon">✝</div>
+  <h1 class="site-title">Masterpiece of Christ Jesus</h1>
+  <p class="site-subtitle">New Believers Registration Portal</p>
+  <p class="verse">"For we are God's masterpiece, created in Christ Jesus to do good works." — Ephesians 2:10</p>
+</header>
+
+<main>
+  <div class="form-card">
+
+    <!-- Section 1: Personal Info -->
+    <p class="section-heading">✦ Personal Information</p>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="fullname">Full Name <span class="req">*</span></label>
+        <input type="text" id="fullname" placeholder="e.g. John Mwangi" required>
+      </div>
+      <div class="field">
+        <label for="age">Age <span class="req">*</span></label>
+        <input type="number" id="age" placeholder="e.g. 24" min="1" max="120" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="gender">Gender <span class="req">*</span></label>
+        <select id="gender" required>
+          <option value="" disabled selected>Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other / Prefer not to say</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="e.g. +254 712 345678">
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Section 2: Location -->
+    <p class="section-heading">✦ Location</p>
+
+    <div class="form-row triple">
+      <div class="field">
+        <label for="nation">Nation <span class="req">*</span></label>
+        <input type="text" id="nation" placeholder="e.g. Kenya" required>
+      </div>
+      <div class="field">
+        <label for="city">City <span class="req">*</span></label>
+        <input type="text" id="city" placeholder="e.g. Nairobi" required>
+      </div>
+      <div class="field">
+        <label for="town">Town / Area <span class="req">*</span></label>
+        <input type="text" id="town" placeholder="e.g. Westlands" required>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Section 3: Commitment Type -->
+    <p class="section-heading">✦ Commitment Type <span class="req">*</span></p>
+
+    <div class="commitment-group">
+      <div class="commitment-option">
+        <input type="radio" name="commitment" id="new-believer" value="New Believer">
+        <label class="commitment-label" for="new-believer">
+          <span class="radio-dot"></span>
+          🕊 New Believer
+        </label>
+      </div>
+      <div class="commitment-option">
+        <input type="radio" name="commitment" id="rededication" value="Rededication">
+        <label class="commitment-label" for="rededication">
+          <span class="radio-dot"></span>
+          🔥 Rededication
+        </label>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Section 4: Ministry Info -->
+    <p class="section-heading">✦ Ministry Details</p>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="minister">Minister's Name <span class="req">*</span></label>
+        <input type="text" id="minister" placeholder="e.g. Pastor David Kariuki" required>
+      </div>
+      <div class="field">
+        <label for="date">Date of Commitment</label>
+        <input type="date" id="date">
+      </div>
+    </div>
+
+    <div class="form-row single">
+      <div class="field">
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" placeholder="Prayer requests, follow-up needs, or any other relevant information…"></textarea>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <button class="btn-submit" onclick="submitForm()">✝ Register This Soul</button>
+      <p class="whatsapp-note">Record will also be sent via <span>WhatsApp</span> to the lead minister</p>
+    </div>
+
+  </div>
+
+  <!-- Records Table -->
+  <div class="records-section">
+    <div class="records-header">
+      <span class="records-title">✦ Registered Souls</span>
+      <div style="display:flex;gap:0.7rem;align-items:center;">
+        <span class="records-count" id="count-badge">0 Records</span>
+        <button class="btn-export" onclick="exportCSV()">⬇ Export CSV</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Nation</th>
+            <th>City</th>
+            <th>Town</th>
+            <th>Type</th>
+            <th>Minister</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody id="records-body">
+          <tr><td colspan="10" class="empty-state">No records yet. The harvest awaits… ✝</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 Masterpiece of Christ Jesus &nbsp;·&nbsp; Built for the Kingdom &nbsp;✝&nbsp; All souls matter
+</footer>
+
+<!-- Success Popup -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <span class="popup-cross">✝</span>
+    <h2>Welcome to the Kingdom!</h2>
+    <p>
+      <span class="popup-name" id="popup-name"></span> has been registered.<br>
+      Heaven rejoices over every soul won for Christ.
+    </p>
+    <a id="wa-link" class="btn-wa" href="#" target="_blank">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003
